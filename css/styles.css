@@ -324,8 +324,20 @@ img {
   background-color: var(--color-bg-beige);
 }
 
+.icon-svg-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.icon-svg-wrap svg {
+  display: block;
+}
+
 .mobile-toggle svg,
-.mobile-toggle i {
+.mobile-toggle i,
+.mobile-toggle .icon-svg-wrap svg {
   width: 28px;
   height: 28px;
   stroke: var(--color-dark);
