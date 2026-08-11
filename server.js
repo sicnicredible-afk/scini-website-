@@ -33,8 +33,7 @@ const server = http.createServer((req, res) => {
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'SAMEORIGIN',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
-    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com; connect-src 'self' https://formspree.io https://docs.google.com; upgrade-insecure-requests;"
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
   };
 
   fs.readFile(filePath, (err, content) => {
