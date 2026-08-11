@@ -570,11 +570,31 @@ const state = {
   mobileMenuOpen: false
 };
 
+// ICON SYSTEM RESTORATION & AUTOMATIC REFRESH HELPER
+function refreshIcons() {
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    try {
+      window.lucide.createIcons();
+    } catch (e) {
+      console.warn('Lucide icon refresh error:', e);
+    }
+  } else {
+    setTimeout(() => {
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }, 150);
+  }
+}
+window.refreshIcons = refreshIcons;
+window.addEventListener('load', refreshIcons);
+
 // 5. INITIALIZATION
 function initApp() {
   window.addEventListener('hashchange', handleHashChange);
   handleHashChange();
   setupGlobalListeners();
+  refreshIcons();
 }
 
 if (document.readyState === 'loading') {
@@ -600,9 +620,7 @@ function setMobileMenuState(isOpen) {
     toggleBtn.innerHTML = state.mobileMenuOpen 
       ? '<i data-lucide="x"></i>' 
       : '<i data-lucide="menu"></i>';
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
+    refreshIcons();
   }
 }
 
@@ -672,9 +690,7 @@ function renderApp() {
   }
 
   // Refresh Lucide Icons after DOM update
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
+  refreshIcons();
 }
 
 function updateActiveNav() {
