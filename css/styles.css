@@ -308,23 +308,34 @@ img {
   display: none;
   background: none;
   border: none;
-  font-size: 1.75rem;
   color: var(--color-dark);
   cursor: pointer;
   padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.mobile-toggle:hover,
+.mobile-toggle:focus {
+  background-color: var(--color-bg-beige);
+}
+
+.mobile-toggle svg,
+.mobile-toggle i {
+  width: 28px;
+  height: 28px;
+  stroke: var(--color-dark);
+  stroke-width: 2.2;
+  display: block;
 }
 
 @media (max-width: 900px) {
   .mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    font-size: 1.75rem;
-    color: var(--color-dark);
-    cursor: pointer;
-    padding: 0.5rem;
+    display: flex !important;
     z-index: 1001;
   }
   .main-nav {
@@ -2229,5 +2240,43 @@ img {
   }
   .bank-detail-value {
     font-size: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   21. TARGETED MOBILE RESPONSIVENESS & HORIZONTAL OVERFLOW PREVENTION
+   ========================================================================== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .closing-cta-section > div {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .closing-cta-section iframe {
+    height: 280px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .newsletter-form .btn {
+    width: 100%;
+  }
+
+  .quick-card,
+  .value-card,
+  .timeline-item,
+  .impact-metric-card,
+  .zone-card {
+    padding: 1.25rem 1rem !important;
   }
 }
