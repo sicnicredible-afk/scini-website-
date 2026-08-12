@@ -2280,6 +2280,48 @@ html, body {
   overflow-x: hidden;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, svg, iframe, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* GLOBAL TEXT CONTAINMENT TO PREVENT HORIZONTAL OVERFLOW */
+h1, h2, h3, h4, h5, h6, p, span, a, li, td, th {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* MEDIA & COMPONENT RESPONSIVE OVERRIDES */
+@media (max-width: 900px) {
+  .team-top-row {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .featured-survey-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .survey-comp-sidebar {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .survey-main-content {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .org-pill-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    justify-content: center !important;
+  }
+}
+
 @media (max-width: 768px) {
   .closing-cta-section > div {
     grid-template-columns: 1fr !important;
@@ -2287,7 +2329,20 @@ html, body {
   }
 
   .closing-cta-section iframe {
+    width: 100% !important;
+    max-width: 100% !important;
     height: 280px !important;
+  }
+
+  .tab-content-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .category-filter-bar {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -2332,6 +2387,15 @@ html, body {
     text-align: center;
     padding: 0 1.25rem;
   }
+
+  .mini-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .inst-card {
+    padding: 1.25rem 1rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2339,7 +2403,12 @@ html, body {
   .value-card,
   .timeline-item,
   .impact-metric-card,
-  .zone-card {
+  .zone-card,
+  .mv-card {
     padding: 1.25rem 1rem !important;
+  }
+
+  .bank-details-card {
+    padding: 1.5rem 1rem !important;
   }
 }
